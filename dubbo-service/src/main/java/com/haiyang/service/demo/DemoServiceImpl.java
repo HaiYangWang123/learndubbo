@@ -1,12 +1,22 @@
 package com.haiyang.service.demo;
 
+
+import com.alibaba.dubbo.config.annotation.Service;
+import com.haiyang.api.demo.IDemoService;
+
 /**
  * @ClassName: DemoServiceImpl
- * @Description: todo java类作用描述
+ * @Description: api接口实现
  * @Author: hywang
- * @Email: haiyang.wang01@mljr.com
  * @CreateDate: 2019-07-23 15:56
- * @Version: 1.0
+ * @Versio1.0
  */
-public class DemoServiceImpl {
+
+@Service(version = "1.0.0")
+public class DemoServiceImpl implements IDemoService {
+
+    //实现
+    public String sayHello() {
+        return "Dubbo Hello";
+    }
 }

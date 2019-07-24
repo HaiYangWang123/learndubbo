@@ -1,9 +1,8 @@
-package com.haiyang.web;
+package com.haiyang.service;
 
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 
@@ -15,14 +14,12 @@ import java.io.IOException;
  * @Version: 1.0
  */
 @SpringBootApplication
+@EnableDubbo
 public class AppMain {
 
     public static void main(String[] args) throws IOException {
-
-
         SpringApplication.run(AppMain.class, args);
         System.out.println("server start");
-
 
 
     }
