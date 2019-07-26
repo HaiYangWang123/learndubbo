@@ -1,10 +1,10 @@
 package com.haiyang.service;
 
-import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @ClassName: AppMain
@@ -14,13 +14,19 @@ import java.io.IOException;
  * @Version: 1.0
  */
 @SpringBootApplication
-@EnableDubbo
 public class AppMain {
 
-    public static void main(String[] args) throws IOException {
-        SpringApplication.run(AppMain.class, args);
-        System.out.println("server start");
+    public static void main(String[] args) throws IOException, InterruptedException {
+      /*  SpringApplication.run(AppMain.class, args);
+        System.out.println("server start");*/
 
+
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-provider.xml");
+        context.start();
+
+        System.out.println("dubbo service started");
+        new CountDownLatch(1).await();
 
     }
 }
