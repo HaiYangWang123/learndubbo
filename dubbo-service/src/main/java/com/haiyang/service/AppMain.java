@@ -1,10 +1,11 @@
 package com.haiyang.service;
 
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.haiyang.api.spi.Robot;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
+import java.util.ServiceLoader;
 
 /**
  * @ClassName: AppMain
@@ -22,11 +23,26 @@ public class AppMain {
 
 
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-provider.xml");
+        /*ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-provider.xml");
         context.start();
 
         System.out.println("dubbo service started");
-        new CountDownLatch(1).await();
+        new CountDownLatch(1).await();*/
+
+        // java spi
+       /* ServiceLoader<Robot> serviceLoader = ServiceLoader.load(Robot.class);
+        System.out.println("JAVA SPI");
+
+        serviceLoader.forEach(robot -> {
+            System.out.println(robot.sayHello());
+        });*/
+
+       // dubbo spi 接口需要使用注解 @SPI
+        ExtensionLoader<Robot> extensionLoader = ExtensionLoader.getExtensionLoader(Robot.class);
+        Robot bumblebee = extensionLoader.getExtension("bumblebee");
+        System.out.println(bumblebee.sayHello());
+        Robot optimusPrime = extensionLoader.getExtension("optimusPrime");
+        System.out.println(optimusPrime.sayHello());
 
     }
 }
