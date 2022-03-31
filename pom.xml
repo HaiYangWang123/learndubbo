@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <springboot.version>2.1.6.RELEASE</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <dubboapi.version>1.0-SNAPSHOT</dubboapi.version>
         <curator-framework.version>4.0.1</curator-framework.version>
         <zookeeper.version>3.4.13</zookeeper.version>
