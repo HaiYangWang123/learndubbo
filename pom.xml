@@ -22,7 +22,7 @@
         <springboot.version>2.1.6.RELEASE</springboot.version>
         <dubboapi.version>1.0-SNAPSHOT</dubboapi.version>
         <curator-framework.version>4.0.1</curator-framework.version>
-        <zookeeper.version>3.4.13</zookeeper.version>
+        <zookeeper.version>3.7.2</zookeeper.version>
         <dubbo.starter.version>0.2.0</dubbo.starter.version>
     </properties>
 
